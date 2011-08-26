@@ -62,7 +62,9 @@ Then add a reference to this dll from within your project. This is done simply b
 Logentries NLog Plugin Setup
 --------------------------------
 
-The first file required is called LeTarget.dll and is available on github at (TBD)
+The first file required is called LeTarget.dll and is available on github at :
+
+	https://github.com/downloads/logentries/le_nlog/LeTarget.dll
 
 Add this file to your bin folder and reference it as done with NLog.dll as it is a plugin for NLog to send logs to Logentries.
 
