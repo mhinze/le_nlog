@@ -71,7 +71,7 @@ NLog Config
 
 Create a config file called NLog.config in your project with the following
 
-or you can download it from github at (TBD) :
+or you can download it from github at : https://github.com/logentries/le_nlog/blob/master/NLog.config
 
 	﻿<?xml version="1.0"?>
 	<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
