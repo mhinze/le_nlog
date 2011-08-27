@@ -53,7 +53,7 @@ http://nlog.codeplex.com/releases/32639/download/259960
 
 In most case's this will install Nlog in:
 
-C:\Program Files\NLog
+		C:\Program Files\NLog
 
 Retreive NLog.dll from the appropriate folder in above directory for your app, i.e: Mono or Silverlight and place it in the bin folder of your project.
 
@@ -73,19 +73,19 @@ Create a config file called NLog.config in your project with the following
 
 or you can download it from github at (TBD) :
 
-﻿<?xml version="1.0"?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <extensions>
-    <add assembly="LeTarget"/>
-  </extensions>
-  <targets>
-    <target name="logentries" type="Logentries" key="YOUR_KEY_HERE" location="YOUR_LOG_DESTINATION_HERE"/>
-  </targets>
-  <rules>
-    <logger name="*" minLevel="Info" appendTo="logentries"/>
-  </rules>
-</nlog>
+	﻿<?xml version="1.0"?>
+	<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+      		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  	   <extensions>
+    		<add assembly="LeTarget"/>
+  	   </extensions>
+  	   <targets>
+    		<target name="logentries" type="Logentries" key="YOUR_KEY_HERE" location="YOUR_LOG_DESTINATION_HERE"/>
+  	   </targets>
+  	   <rules>
+    		<logger name="*" minLevel="Info" appendTo="logentries"/>
+  	   </rules>
+	</nlog>
 
 Replace the value "YOUR-USER-KEY-HERE" with your user-key obtained earlier. You must also replace the "YOUR-LOG-DESTINATION-HERE" value. The value you provide here will appear in your Logentries account and will be used to identify your machine and log events. This should be in the following format:
 
@@ -98,12 +98,12 @@ With that done, you are ready to send logs to Logentries.
 
 In each class you wish to log from, enter the following using directives at the top if not already there:
 
-using NLog;
-using NLog.Config;
+	using NLog;
+	using NLog.Config;
 
 Then create this object at class-level:
 
-private static Logger logger = LogManager.GetCurrentClassLogger();
+	private static Logger logger = LogManager.GetCurrentClassLogger();
 
 What this does is create a logger with the name of the current class for clarity in the logs.
 
