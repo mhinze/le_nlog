@@ -111,7 +111,7 @@ Now within your code in that class, you can log using NLog as normal and it will
 
 Example:
 
-logger.Debug("Debugging Message");
-logger.Info("Informational message");
-logger.Warn("Warning Message");
+	logger.Debug("Debugging Message");
+	logger.Info("Informational message");
+	logger.Warn("Warning Message");
 
