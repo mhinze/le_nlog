@@ -34,7 +34,7 @@ To configure NLog, you will need to perform the following:
 
 To obtain your Logentries account key you must download the getKey exe from github at:
 
-	https://github.com/logentries/le_log4net/downloads
+	https://github.com/downloads/logentries/le_log4net/getkey.zip
 
 This user-key is essentially a password to your account and is required for each of the steps listed below. To get the key unzip the file you download and run the following from the command line:
 
