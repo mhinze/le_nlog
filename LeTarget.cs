@@ -45,6 +45,7 @@ namespace Le
         private void createSocket(String key, String location)
         {
             this.leSocket = new TcpClient("api.logentries.com", 443);
+            this.leSocket.NoDelay = true;
             this.sslSock = new SslStream(this.leSocket.GetStream());
             this.encoding = new System.Text.ASCIIEncoding();
 
