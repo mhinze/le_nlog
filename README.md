@@ -45,19 +45,9 @@ You will be required to provide your user name and password here. Save the key a
 NLog Setup
 ------------------
 
-If you don't already have NLog set up in your project, please follow these steps:
+If you don't already have Log4net set up in your project, we suggest using Nuget.
 
-Download NLog from:
-
-http://nlog.codeplex.com/releases/32639/download/259960
-
-In most case's this will install Nlog in:
-
-		C:\Program Files\NLog
-
-Retreive NLog.dll from the appropriate folder in above directory for your app, i.e: Mono or Silverlight and place it in the bin folder of your project.
-
-Then add a reference to this dll from within your project. This is done simply by right-clicking References, Click Add Reference and locate the dll in your project bin folder.
+Instructions to do so can be found at http://nuget.org/List/Packages/NLog
 
 Logentries NLog Plugin Setup
 --------------------------------
