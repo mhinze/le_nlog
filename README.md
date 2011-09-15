@@ -45,7 +45,7 @@ You will be required to provide your user name and password here. Save the key a
 NLog Setup
 ------------------
 
-If you don't already have Log4net set up in your project, we suggest using Nuget.
+If you don't already have NLog set up in your project, we suggest using Nuget.
 
 Instructions to do so can be found at http://nuget.org/List/Packages/NLog
 
