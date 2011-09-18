@@ -52,11 +52,15 @@ Instructions to do so can be found at http://nuget.org/List/Packages/NLog
 Logentries NLog Plugin Setup
 --------------------------------
 
-The first file required is called LeTarget.dll and is available on github at :
+Now you need to get the Logentries Plugin Library, we suggest using Nuget for this as well.
 
-	https://github.com/downloads/logentries/le_nlog/LeTarget.dll
+The package is found at https://nuget.org/List/Packages/le_nlog
 
-Add this file to your bin folder and reference it as done with NLog.dll as it is a plugin for NLog to send logs to Logentries.
+If you're not using Nuget, the library can be downloaded from:
+
+https://github.com/downloads/logentries/le_nlog/le_nlog.dll
+
+It will need to be referenced in your project.
 
 NLog Config
 ------------------
