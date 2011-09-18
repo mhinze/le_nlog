@@ -76,7 +76,7 @@ or you can download it from github at : https://github.com/logentries/le_nlog/bl
     		<add assembly="LeTarget"/>
   	   </extensions>
   	   <targets>
-    		<target name="logentries" type="Logentries" key="YOUR_KEY_HERE" location="YOUR_LOG_DESTINATION_HERE"/>
+    		<target name="logentries" type="Logentries" key="YOUR_KEY_HERE" location="YOUR_LOG_DESTINATION_HERE" debug="true" />
   	   </targets>
   	   <rules>
     		<logger name="*" minLevel="Info" appendTo="logentries"/>
