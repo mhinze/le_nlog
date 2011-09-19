@@ -39,6 +39,9 @@ namespace Le
 
         [RequiredParameter]
         public string Location { get; set; }
+        
+        [RequiredParameter]
+        public bool Debug { get; set; }
 
         public bool KeepConnection { get; set; }
 
@@ -76,15 +79,13 @@ namespace Le
                 {
                     this.createSocket(this.Key, this.Location);
                 }
-                catch (SocketException e)
+                catch (Exception e)
                 {
-                    Console.Error.WriteLine("Error connecting to Logentries");
-                    Console.Error.WriteLine(e.ToString());
-                }
-                catch (IOException e1)
-                {
-                    Console.Error.WriteLine("Error connecting to Logentries");
-                    Console.Error.WriteLine(e1.ToString());
+                    if (this.Debug == true)
+                    {
+                        Console.Error.WriteLine("Error connecting to Logentries");
+                        Console.Error.WriteLine(e.ToString());
+                    }
                 }
             }
 
@@ -94,15 +95,21 @@ namespace Le
             {
                 this.sendToLogentries(message);
             }
-            catch (SocketException e)
+            catch (Exception)
             {
-                Console.Error.WriteLine("Error sending log. No connection to Logentries");
-                Console.Error.WriteLine(e.ToString());
-            }
-            catch (IOException e1)
-            {
-                Console.Error.WriteLine("Error sending log. No connection to Logentries");
-                Console.Error.WriteLine(e1.ToString());
+                try
+                {
+                    this.createSocket(this.Key, this.Location);
+                    this.sendToLogentries(message);
+                }
+                catch (Exception ex)
+                {
+                    if (this.Debug == true)
+                    {
+                        Console.Error.WriteLine("Error sending log. No connection to Logentries");
+                        Console.Error.WriteLine(ex.ToString());
+                    }
+                }
             }
         }
 
