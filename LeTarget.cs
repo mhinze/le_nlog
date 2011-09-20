@@ -81,11 +81,7 @@ namespace Le
                 }
                 catch (Exception e)
                 {
-                    if (this.Debug == true)
-                    {
-                        Console.Error.WriteLine("Error connecting to Logentries");
-                        Console.Error.WriteLine(e.ToString());
-                    }
+                     WriteDebugMessages("Error connecting to Logentries", e);
                 }
             }
 
@@ -104,11 +100,7 @@ namespace Le
                 }
                 catch (Exception ex)
                 {
-                    if (this.Debug == true)
-                    {
-                        Console.Error.WriteLine("Error sending log. No connection to Logentries");
-                        Console.Error.WriteLine(ex.ToString());
-                    }
+                     WriteDebugMessages("Error sending log to Logentries", ex);
                 }
             }
         }
@@ -116,6 +108,17 @@ namespace Le
         private void sendToLogentries(byte[] message)
         {
             this.sslSock.Write(message, 0, message.Length);
+        }
+        
+        private void WriteDebugMessages(string message, Exception e)
+        {
+            if (!this.Debug) return;
+            string[] messages = {message, e.ToString()};
+            foreach (var msg in messages)
+            {
+                System.Diagnostics.Debug.WriteLine(msg);
+                Console.Error.WriteLine(msg);
+            }
         }
     }
 }
