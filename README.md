@@ -73,7 +73,7 @@ or you can download it from github at : https://github.com/logentries/le_nlog/bl
 	<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
       		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   	   <extensions>
-    		<add assembly="LeTarget"/>
+    		<add assembly="le_nlog"/>
   	   </extensions>
   	   <targets>
     		<target name="logentries" type="Logentries" key="YOUR_KEY_HERE" location="YOUR_LOG_DESTINATION_HERE" debug="true" />
