@@ -65,25 +65,27 @@ It will need to be referenced in your project.
 NLog Config
 ------------------
 
-Create a config file called NLog.config in your project with the following
+The following configuration needs to be placed in your web.config file directly underneath 
 
-or you can download it from github at : https://github.com/logentries/le_nlog/blob/master/NLog.config
+the opening `<configuration>`
 
-	﻿<?xml version="1.0"?>
-	<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
-      		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  	   <extensions>
-    		<add assembly="le_nlog"/>
-  	   </extensions>
-  	   <targets>
-    		<target name="logentries" type="Logentries" key="YOUR_KEY_HERE" location="YOUR_LOG_DESTINATION_HERE" debug="true" />
-  	   </targets>
-  	   <rules>
-    		<logger name="*" minLevel="Info" appendTo="logentries"/>
-  	   </rules>
-	</nlog>
+    <configSections>
+      <section name="nlog" type="NLog.Config.ConfigSectionHandler, NLog"/>
+    </configSections>
+    <nlog>
+      <extensions>
+        <add assembly="le_nlog"/>
+      </extensions>
+      <targets>
+        <target name="logentries" type="Logentries" key="LOGENTRIES_USER_KEY" location="LOGENTRIES_LOCATION" 
+            debug="true" layout="${date:format=ddd MMM dd} ${time:format=HH:mm:ss} ${date:format=zzz yyyy} ${logger} : ${LEVEL}, ${message"/>
+      </targets>
+      <rules>
+        <logger name="*" minLevel="Info" appendTo="logentries"/>
+      </rules>
+    </nlog>
 
-Replace the value "YOUR-USER-KEY-HERE" with your user-key obtained earlier. You must also replace the "YOUR-LOG-DESTINATION-HERE" value. The value you provide here will appear in your Logentries account and will be used to identify your machine and log events. This should be in the following format:
+Replace the value "LOGENTRIES_USER_KEY" with your user-key obtained earlier. Also replace the "LOGENTRIES_LOCATION" value. The value you provide here will appear in your Logentries account and will be used to identify your machine and log events. This should be in the following format:
 
 	hostname/logname.log
 
