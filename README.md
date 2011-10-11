@@ -36,7 +36,7 @@ To obtain your Logentries account key you must download the getKey exe from gith
 
 	https://github.com/downloads/logentries/le_nlog/getKey.zip
 
-This user-key is essentially a password to your account and is required for each of the steps listed below. To get the key unzip the file you download and run the following from the command line:
+This account-key is essentially a password to your account and is required for each of the steps listed below. To get the key unzip the file you download and run the following from the command line:
 
     getKey.exe --key
 
@@ -77,7 +77,7 @@ the opening `<configuration>`
         <add assembly="le_nlog"/>
       </extensions>
       <targets>
-        <target name="logentries" type="Logentries" key="LOGENTRIES_USER_KEY" location="LOGENTRIES_LOCATION" 
+        <target name="logentries" type="Logentries" key="LOGENTRIES_ACCOUNT_KEY" location="LOGENTRIES_LOCATION" 
             debug="true" layout="${date:format=ddd MMM dd} ${time:format=HH:mm:ss} ${date:format=zzz yyyy} ${logger} : ${LEVEL}, ${message"/>
       </targets>
       <rules>
@@ -85,7 +85,7 @@ the opening `<configuration>`
       </rules>
     </nlog>
 
-Replace the value "LOGENTRIES_USER_KEY" with your user-key obtained earlier. Also replace the "LOGENTRIES_LOCATION" value. The value you provide here will appear in your Logentries account and will be used to identify your machine and log events. This should be in the following format:
+Replace the value "LOGENTRIES_ACCOUNT_KEY" with your account-key obtained earlier. Also replace the "LOGENTRIES_LOCATION" value. The value you provide here will appear in your Logentries account and will be used to identify your machine and log events. This should be in the following format:
 
 	hostname/logname.log
 
