@@ -27,7 +27,7 @@ namespace Le
     {
         private SslStream sslSock = null;
         private TcpClient leSocket = null;
-        private System.Text.ASCIIEncoding encoding;
+        private System.Text.UTF8Encoding encoding;
 
         public LeTarget()
         {
@@ -50,7 +50,7 @@ namespace Le
             this.leSocket = new TcpClient("api.logentries.com", 443);
             this.leSocket.NoDelay = true;
             this.sslSock = new SslStream(this.leSocket.GetStream());
-            this.encoding = new System.Text.ASCIIEncoding();
+            this.encoding = new System.Text.UTF8Encoding();
 
             this.sslSock.AuthenticateAsClient("logentries.com");
 
