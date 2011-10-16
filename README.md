@@ -42,25 +42,22 @@ This account-key is essentially a password to your account and is required for e
 
 You will be required to provide your user name and password here. Save the key as you will need this later on. 
 
-NLog Setup
-------------------
-
-If you don't already have NLog set up in your project, we suggest using Nuget.
-
-Instructions to do so can be found at http://nuget.org/List/Packages/NLog
-
 Logentries NLog Plugin Setup
 --------------------------------
 
-Now you need to get the Logentries Plugin Library, we suggest using Nuget for this as well.
+To install the Logentries Plugin Library, we suggest using Nuget.
 
 The package is found at https://nuget.org/List/Packages/le_nlog
+
+This will also install NLog into your project if it is not already installed.
 
 If you're not using Nuget, the library can be downloaded from:
 
 https://github.com/downloads/logentries/le_nlog/le_nlog.dll
 
 It will need to be referenced in your project.
+
+If you use this option, make sure to install NLog  appropriately.
 
 NLog Config
 ------------------
