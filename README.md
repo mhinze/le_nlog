@@ -32,15 +32,9 @@ To configure NLog, you will need to perform the following:
     * (2) Setup NLog (if you are not already using it).
     * (3) Configure the Logentries NLog plugin.
 
-To obtain your Logentries account key you must download the getKey exe from github at:
+You can obtain your Logentries account key on the Logentries UI, by clicking account in the top left corner
 
-	https://github.com/downloads/logentries/le_nlog/getKey.zip
-
-This account-key is essentially a password to your account and is required for each of the steps listed below. To get the key unzip the file you download and run the following from the command line:
-
-    getKey.exe --key
-
-You will be required to provide your user name and password here. Save the key as you will need this later on. 
+and then display account key on the right.
 
 Logentries NLog Plugin Setup
 --------------------------------
@@ -85,6 +79,14 @@ the opening `<configuration>`
 Replace the value "LOGENTRIES_ACCOUNT_KEY" with your account-key obtained earlier. Also replace the "LOGENTRIES_LOCATION" value. The value you provide here will appear in your Logentries account and will be used to identify your machine and log events. This should be in the following format:
 
 	hostname/logname.log
+	
+If you would rather create a host and log from your command line instead of the Logentries UI,
+
+you can use the following program:
+
+https://github.com/downloads/logentries/le_log4net/getkey.zip
+
+Run it as follows: getKey.exe --register
 
 Logging Messages
 ----------------
