@@ -7,13 +7,13 @@ Simple Usage Example
 
     public class HomeController : Controller
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger log = LogManager.GetCurrentClassLogger();
 
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
 
-            logger.Warn("This is a warning message");
+            log.Warn("This is a warning message");
 
             return View();
         }
@@ -100,7 +100,7 @@ In each class you wish to log from, enter the following using directives at the 
 
 Then create this object at class-level:
 
-	private static Logger logger = LogManager.GetCurrentClassLogger();
+	private static readonly Logger log = LogManager.GetCurrentClassLogger();
 
 What this does is create a logger with the name of the current class for clarity in the logs.
 
@@ -108,7 +108,7 @@ Now within your code in that class, you can log using NLog as normal and it will
 
 Example:
 
-	logger.Debug("Debugging Message");
-	logger.Info("Informational message");
-	logger.Warn("Warning Message");
+	log.Debug("Debugging Message");
+	log.Info("Informational message");
+	log.Warn("Warning Message");
 
