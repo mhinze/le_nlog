@@ -7,7 +7,7 @@ Simple Usage Example
 
     public class HomeController : Controller
     {
-        private static readonly Logger log = LogManager.GetCurrentClassLogger();
+        private static readonly Logger log = LogManager.GetLogger(typeof(HomeController).Name);
 
         public ActionResult Index()
         {
@@ -100,7 +100,7 @@ In each class you wish to log from, enter the following using directives at the 
 
 Then create this object at class-level:
 
-	private static readonly Logger log = LogManager.GetCurrentClassLogger();
+	private static readonly Logger log = LogManager.GetLogger(typeof(NAME_OF_CLASS).Name);
 
 What this does is create a logger with the name of the current class for clarity in the logs.
 
