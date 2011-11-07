@@ -93,10 +93,9 @@ Logging Messages
 
 With that done, you are ready to send logs to Logentries.
 
-In each class you wish to log from, enter the following using directives at the top if not already there:
+In each class you wish to log from, enter the following using directive at the top if it is not already there:
 
 	using NLog;
-	using NLog.Config;
 
 Then create this object at class-level:
 
