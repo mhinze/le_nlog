@@ -1,7 +1,7 @@
 ﻿/*
-   Logentries Log4Net Logging agent
-   Copyright 2010,2011 Logentries, Jlizard
-   Mark Lacomber <marklacomber@gmail.com>
+    Logentries Log4Net Logging agent
+    Copyright 2010,2011 Logentries, Jlizard
+    Mark Lacomber <marklacomber@gmail.com>
                                             */
 
 using System;
@@ -34,12 +34,16 @@ namespace Le
 
         }
 
-        [RequiredParameter]
-        public string Key { get; set; }
+        string GetKey()
+        {
+            return ConfigurationManager.AppSettings["LOGENTRIES_ACCOUNT_KEY"];
+        }
 
-        [RequiredParameter]
-        public string Location { get; set; }
-        
+        string GetLocation()
+        {
+            return ConfigurationManager.AppSettings["LOGENTRIES_LOCATION"];
+        }
+
         [RequiredParameter]
         public bool Debug { get; set; }
 
@@ -77,11 +81,11 @@ namespace Le
             {
                 try
                 {
-                    this.createSocket(this.Key, this.Location);
+                    this.createSocket(this.GetKey(), this.GetLocation());
                 }
                 catch (Exception e)
                 {
-                     WriteDebugMessages("Error connecting to Logentries", e);
+                    WriteDebugMessages("Error connecting to Logentries", e);
                 }
             }
 
@@ -95,12 +99,12 @@ namespace Le
             {
                 try
                 {
-                    this.createSocket(this.Key, this.Location);
+                    this.createSocket(this.GetKey(), this.GetLocation());
                     this.sendToLogentries(message);
                 }
                 catch (Exception ex)
                 {
-                     WriteDebugMessages("Error sending log to Logentries", ex);
+                    WriteDebugMessages("Error sending log to Logentries", ex);
                 }
             }
         }
@@ -109,11 +113,11 @@ namespace Le
         {
             this.sslSock.Write(message, 0, message.Length);
         }
-        
+
         private void WriteDebugMessages(string message, Exception e)
         {
             if (!this.Debug) return;
-            string[] messages = {message, e.ToString()};
+            string[] messages = { message, e.ToString() };
             foreach (var msg in messages)
             {
                 System.Diagnostics.Debug.WriteLine(msg);
